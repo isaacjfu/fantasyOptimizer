@@ -12,7 +12,7 @@ client_secret = os.getenv('CLIENT_SECRET')
 league_id = os.getenv('LEAGUE_ID')
 redirect_uri = 'https://redirectmeto.com/http://localhost:5000/redirect'
 url_base = 'localhost:5000'
-access_token = 'BHfMUMWYpgvrjbR5Ou8w91tgvZxJBRIiDUBNL.VD4feGXQg0jBy7sHsw3ejXqGbYKT4SB6gViRJZ5aI0yuE5Q42PCM_ZHm_g47dl6Jo10zVZ._rh786WWGDETq6BjBNcN4pMOVHt.J_c5gtL.vvS0CThXopm2eYBAfGe3QNUJYENOjbNXF3epk1RYgYvQvnDeONEbhBQICFBczc4vp0IoSJcALRRMsQj5hGMijonmdEKGTY7iwAwqrC.R5PIc3qBIq0vxqJxyT8A8wD7zEExKa8ktW62A38Nz5xIveU914ffQqWG_ydZaZ7B.WEF8752HkCUOTgIOFoJzAtgw9K5C.Cxd6oMZ74vEFOO5cHTmPXLXS._KkCtKiKCAClfzPS7dcfytGtclKuHFSR4KkxRoBrVmCaYHaCGzVwXC88VbdBuXEbpdfET9dmff2fH5yAgbY3C8cYQK8AdJbv5KsX.OYIfyJgsO2ulobT4DpInK3mWg21tC4AmREHo3vyksbMeFG_2xjtsAeQB.ebxsPbLuB2SMxAMOMD5aMmSrsqaVMk3rT8029Px1805jPS_jo8I6WiOpNxmVs5hC2kFEi6hKWZZM42.JOp35BkKctc4sjIhbHPxqWobklG0IfLjWItMYfFjEWn.GiLb1TG2tjP6JaZDM_qcccE6A6tmWlpEQpCd39tojYop_WcU2VYYMBN9_bHSqWMJQUUSjFtwFoh_h1dv7LEsqyj1UGdus1gansjjZhOE6q7hPmF7SckSvyMrXdpdDTuQ93LzOWQYTB6qFomV_CBR0r4Lsq5Wl2F1Cc62Z5RFssKLK0b22r8DZplGg6PhSlaxrP4KxqmmmHw9fs6I5d_u4LiP9F65uURkvhxFPsfQIws3F8Zz0rRbobr8pSQPxPu59vCm55d7NwsuSeoX7IMqUV1L'
+access_token = '1pC8b8.Ypgtjpv3uxLAr4iyrwMP7jHxgN5TmBBgiFUqzREGycwbrWQ1TfHQJSn3BFG.CCJqwPEOVQePG28sUZrYxz8yqGvZvvojW8AuTCR7DC7SD1vfedBOT8_3PB4xdsSudq5LY.P467Z1yrGOEvlzGkJlPocqBxTydOrU_noF2Wy366YPY7yPqMiqsI2L.cCD7XeDKR8KfImI4tK0AXc6rustwRniw6jIwnBbZAEnDIbJ6x5PfMYS0FFE33T7HdfBF6a_coUS.la1nU8YVlyr1GPOhc0LkgpwIlen8HDSBnIii9Rzw6Tqlz9kYoOV_LGczFPNoeRR._m5RAq5ZIg4OUBqhCsRXjLN.NZOSHTSsl1XMcNrLR5h6YWeMv7KogKZ8A11waOVbDzmQFzjr1hUp7spWdYH2BCM9W8wwW_qAoFnd.bTf1u0HF.z6Xkvatnih_qHjjd6.Onc3H.TdjOXWkCTuISeYurJzo2WWGo6ts5MFLB9hRDbv99aAOvNf8KagxqEGse4heNJRMSZ7SwSKNSycnKPEIYKBSwy1ZIMzsesikGVeZWfK7bDPYZI_JvuRWeGF.M4IjYKPLR9qCNFudyQeeeBYS_GxFS8XxKDI1d6agKtErXxifAVVuhTjA49LGVptXj0cQ9mqX8_85SRabaM1fU2xhLbPL9r8s28_NkFf0.06t2yHPQyvgc5D9yoZ9JTLW8IryZBseXETEgWpUFA6Bkk7ObHOPxiusuQNPNyvZ1287OdxxHdv0wSLH7KCdGfngghsd584_BcVHyRfDV1zRlFA7LZhbHxdeHGuBgnJKfnE4D671w.jwoj9z4Pg7Hd3BpCip9unwtpIxv1N.CfgWbZn7nkPCRXzjIkHB2y8uTc.eUJH9g3hSz28L2kqEcdp0KBx3k7fvVNVA2TKEK6GiEj1'
 
 def request_handler():
     
@@ -133,14 +133,39 @@ def team_query(h,l_id):
     return teams
 
 def players_query(h,l_id):
-    u = f'https://fantasysports.yahooapis.com/fantasy/v2/league/{l_id}/players;search=a'
-    r = requests.get(u,headers = h)
-    print(r.text)
-    encoded = r.text.encode(encoding = 'ascii', errors = 'ignore').decode("utf-8")
-    root = strip_namespace(encoded)
+    start_idx = 0
+    end = False
+    players = {}
+
+    while(not end):
+        u = f'https://fantasysports.yahooapis.com/fantasy/v2/league/{l_id}/players;sort=NAME;start={start_idx}'
+        r = requests.get(u,headers = h)
+        encoded = r.text.encode(encoding = 'ascii', errors = 'ignore').decode("utf-8")
+        root = strip_namespace(encoded)
+        league_node = root.find('league')
+        players_node =  league_node.find('players')
+        
+        count = players_node.attrib
+        count = (int) (count['count'])
+        if count < 25:
+            end = True
+        start_idx += count
+
+        for player in players_node.findall('player'):
+            name_node = player.find('name')
+            full_name = name_node.find('full').text
+            players[player.find('player_id').text] = full_name
+            pass
+
     f = open("test.txt", "w")
     f.write(r.text)
     f.close()
+
+    print(players)
+    print(len(players))
+
+        
+    
 
 def matchup_query(h,l_id):
     team_1 = {
