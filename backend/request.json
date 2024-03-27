@@ -1,0 +1,374 @@
+{
+  "settings": {
+    "roster_spots": [
+      "PG",
+      "SG",
+      "G",
+      "SF",
+      "PF",
+      "F",
+      "C",
+      "C",
+      "Util",
+      "Util",
+      "BN",
+      "BN",
+      "BN",
+      "IL",
+      "IL"
+    ],
+    "categories": [
+      "FGM/A",
+      "FG%",
+      "FTM/A",
+      "FT%",
+      "3PTM",
+      "PTS",
+      "REB",
+      "AST",
+      "ST",
+      "BLK",
+      "TO"
+    ],
+    "max_weekly_adds": "4",
+    "waiver_time": "2",
+    "current_week": "22"
+  },
+  "players": null,
+  "team": {
+    "428.l.41675.t.6": {
+      "name": "Austin Reaves",
+      "roster": [
+        "Devin Booker/PHX/1",
+        "Austin Reaves/LAL/15",
+        "DeMar DeRozan/CHI/11",
+        "Kyle Kuzma/WAS/33",
+        "Jonathan Kuminga/GSW/00",
+        "Desmond Bane/MEM/22",
+        "Isaiah Hartenstein/NYK/55",
+        "Jalen Duren/DET/0",
+        "Michael Porter Jr./DEN/1",
+        "Tobias Harris/PHI/12",
+        "De'Aaron Fox/SAC/5",
+        "Khris Middleton/MIL/22",
+        "Luka Doncic/DAL/77",
+        "Vince Williams Jr./MEM/5"
+      ]
+    },
+    "428.l.41675.t.4": {
+      "name": "scottiebrrrrns",
+      "roster": [
+        "Chris Paul/GSW/3",
+        "Bradley Beal/PHX/3",
+        "Tre Jones/SAS/33",
+        "Paul George/LAC/13",
+        "Evan Mobley/CLE/4",
+        "Josh Hart/NYK/3",
+        "Draymond Green/GSW/23",
+        "Richaun Holmes/WAS/22",
+        "Rudy Gobert/MIN/27",
+        "Mike Conley/MIN/10",
+        "Jimmy Butler/MIA/22",
+        "Giannis Antetokounmpo/MIL/34",
+        "Bam Adebayo/MIA/13",
+        "Tyus Jones/WAS/5",
+        "Scottie Barnes/TOR/4"
+      ]
+    },
+    "428.l.41675.t.5": {
+      "name": "Father & Sonneded",
+      "roster": [
+        "Spencer Dinwiddie/LAL/26",
+        "Mikal Bridges/BKN/1",
+        "Alex Caruso/CHI/6",
+        "Andrew Wiggins/GSW/22",
+        "Deni Avdija/WAS/8",
+        "Kelly Oubre Jr./PHI/9",
+        "Myles Turner/IND/33",
+        "Daniel Gafford/DAL/21",
+        "Nikola Vucevic/CHI/9",
+        "Nic Claxton/BKN/33",
+        "CJ McCollum/NOP/3",
+        "Derrick White/BOS/9",
+        "Jayson Tatum/BOS/0",
+        "Cameron Johnson/BKN/2",
+        "Joel Embiid/PHI/21"
+      ]
+    },
+    "428.l.41675.t.3": {
+      "name": "who tf is vasilije micic",
+      "roster": [
+        "Tyrese Haliburton/IND/0",
+        "Dejounte Murray/ATL/5",
+        "Jalen Brunson/NYK/11",
+        "Ayo Dosunmu/CHI/12",
+        "Miles Bridges/CHA/0",
+        "Bogdan Bogdanovic/ATL/13",
+        "Jabari Smith Jr./HOU/10",
+        "Naz Reid/MIN/11",
+        "De'Andre Hunter/ATL/12",
+        "Kyle Anderson/MIN/1",
+        "Herbert Jones/NOP/5",
+        "Keegan Murray/SAC/13",
+        "Grayson Allen/PHX/8",
+        "Donovan Mitchell/CLE/45",
+        "Trae Young/ATL/11"
+      ]
+    },
+    "428.l.41675.t.8": {
+      "name": "Ayo dosunmu is my opp",
+      "roster": [
+        "Shai Gilgeous-Alexander/OKC/2",
+        "Devin Vassell/SAS/24",
+        "Brandon Miller/CHA/24",
+        "Lauri Markkanen/UTA/23",
+        "Victor Wembanyama/SAS/1",
+        "Anthony Edwards/MIN/5",
+        "Chet Holmgren/OKC/7",
+        "Walker Kessler/UTA/24",
+        "GG Jackson II/MEM/45",
+        "Keyonte George/UTA/3",
+        "Trey Murphy III/NOP/25",
+        "Zion Williamson/NOP/1",
+        "Jordan Poole/WAS/13",
+        "Tyler Herro/MIA/14",
+        "Coby White/CHI/0"
+      ]
+    },
+    "428.l.41675.t.7": {
+      "name": "Father & Son",
+      "roster": [
+        "Scoot Henderson/POR/00",
+        "Brandin Podziemski/GSW/2",
+        "Fred VanVleet/HOU/5",
+        "Keldon Johnson/SAS/3",
+        "Jerami Grant/POR/9",
+        "Paolo Banchero/ORL/5",
+        "Trayce Jackson-Davis/GSW/32",
+        "Nikola Jokic/DEN/15",
+        "Collin Sexton/UTA/2",
+        "Jamal Murray/DEN/27",
+        "Bobby Portis/MIL/9",
+        "Jonas Valanciunas/NOP/17",
+        "Jaylen Brown/BOS/7",
+        "Alperen Sengun/HOU/28",
+        "Julius Randle/NYK/30"
+      ]
+    },
+    "428.l.41675.t.10": {
+      "name": "Sprained Ankles",
+      "roster": [
+        "Jalen Green/HOU/4",
+        "Jalen Suggs/ORL/4",
+        "Caris LeVert/CLE/3",
+        "LeBron James/LAL/23",
+        "Anthony Davis/LAL/3",
+        "John Collins/UTA/20",
+        "Jaren Jackson Jr./MEM/13",
+        "Marvin Bagley III/WAS/35",
+        "Klay Thompson/GSW/11",
+        "Jusuf Nurkic/PHX/20",
+        "Jock Landale/HOU/2",
+        "Anfernee Simons/POR/1",
+        "Damian Lillard/MIL/0",
+        "Ja Morant/MEM/12",
+        "OG Anunoby/NYK/8"
+      ]
+    },
+    "428.l.41675.t.9": {
+      "name": "Board Men",
+      "roster": [
+        "Darius Garland/CLE/10",
+        "James Harden/LAC/1",
+        "Gary Trent Jr./TOR/33",
+        "Kawhi Leonard/LAC/2",
+        "Josh Giddey/OKC/3",
+        "Santi Aldama/MEM/7",
+        "Clint Capela/ATL/15",
+        "Paul Reed/PHI/44",
+        "Jarrett Allen/CLE/31",
+        "Dennis Schroder/BKN/17",
+        "Jaden Ivey/DET/23",
+        "Domantas Sabonis/SAC/10",
+        "Amen Thompson/HOU/1",
+        "LaMelo Ball/CHA/1",
+        "Mark Williams/CHA/5"
+      ]
+    },
+    "428.l.41675.t.1": {
+      "name": null,
+      "roster": [
+        "Stephen Curry/GSW/30",
+        "Cam Thomas/BKN/24",
+        "Donte DiVincenzo/NYK/0",
+        "Jalen Williams/OKC/8",
+        "Aaron Nesmith/IND/23",
+        "Keon Ellis/SAC/23",
+        "Ivica Zubac/LAC/40",
+        "P.J. Washington Jr./DAL/25",
+        "Kristaps Porzingis/BOS/8",
+        "Malik Monk/SAC/0",
+        "Cade Cunningham/DET/2",
+        "Kelly Olynyk/TOR/41",
+        "Franz Wagner/ORL/22",
+        "Karl-Anthony Towns/MIN/32",
+        "Jalen Johnson/ATL/1"
+      ]
+    },
+    "428.l.41675.t.2": {
+      "name": "Toronto Raptors",
+      "roster": [
+        "Tyrese Maxey/PHI/0",
+        "Kentavious Caldwell-Pope/DEN/5",
+        "Kyrie Irving/DAL/11",
+        "Kevin Durant/PHX/35",
+        "Jonathan Isaac/ORL/1",
+        "Pascal Siakam/IND/43",
+        "Deandre Ayton/POR/2",
+        "Grant Williams/CHA/2",
+        "D'Angelo Russell/LAL/1",
+        "Immanuel Quickley/TOR/5",
+        "Terry Rozier/MIA/2",
+        "Malik Beasley/MIL/5",
+        "Brook Lopez/MIL/11",
+        "Jrue Holiday/BOS/4"
+      ]
+    }
+  },
+  "matchup": {
+    "start": "2024-03-25",
+    "end": "2024-03-31",
+    "matchups": [
+      {
+        "team_1": "428.l.41675.t.1",
+        "team_2": "428.l.41675.t.9",
+        "team_1_stats": [
+          "65/132",
+          "15/20",
+          "24",
+          "169",
+          "56",
+          "38",
+          "5",
+          "8",
+          "18"
+        ],
+        "team_2_stats": [
+          "67/123",
+          "29/36",
+          "11",
+          "174",
+          "97",
+          "59",
+          "6",
+          "13",
+          "24"
+        ]
+      },
+      {
+        "team_1": "428.l.41675.t.2",
+        "team_2": "428.l.41675.t.10",
+        "team_1_stats": [
+          "85/170",
+          "25/31",
+          "31",
+          "226",
+          "43",
+          "40",
+          "9",
+          "4",
+          "16"
+        ],
+        "team_2_stats": [
+          "67/170",
+          "23/31",
+          "20",
+          "177",
+          "72",
+          "33",
+          "12",
+          "14",
+          "17"
+        ]
+      },
+      {
+        "team_1": "428.l.41675.t.3",
+        "team_2": "428.l.41675.t.6",
+        "team_1_stats": [
+          "70/151",
+          "26/36",
+          "25",
+          "191",
+          "43",
+          "50",
+          "10",
+          "3",
+          "16"
+        ],
+        "team_2_stats": [
+          "97/218",
+          "45/55",
+          "25",
+          "264",
+          "96",
+          "67",
+          "17",
+          "12",
+          "28"
+        ]
+      },
+      {
+        "team_1": "428.l.41675.t.4",
+        "team_2": "428.l.41675.t.5",
+        "team_1_stats": [
+          "55/108",
+          "7/15",
+          "5",
+          "122",
+          "71",
+          "62",
+          "14",
+          "5",
+          "18"
+        ],
+        "team_2_stats": [
+          "64/129",
+          "29/36",
+          "17",
+          "174",
+          "86",
+          "37",
+          "7",
+          "15",
+          "20"
+        ]
+      },
+      {
+        "team_1": "428.l.41675.t.7",
+        "team_2": "428.l.41675.t.8",
+        "team_1_stats": [
+          "57/120",
+          "20/25",
+          "13",
+          "147",
+          "50",
+          "30",
+          "10",
+          "3",
+          "15"
+        ],
+        "team_2_stats": [
+          "81/171",
+          "37/42",
+          "23",
+          "222",
+          "59",
+          "49",
+          "13",
+          "4",
+          "16"
+        ]
+      }
+    ]
+  }
+}
