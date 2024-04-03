@@ -1,4 +1,5 @@
-from flask import Flask, request
+from flask import Flask, request, redirect
+from flask_cors import CORS, cross_origin
 from dotenv import load_dotenv
 from nba_api.stats.endpoints import playercareerstats, commonplayerinfo, cumestatsteamgames, playernextngames
 from nba_api.stats.static import players
@@ -16,7 +17,8 @@ client_secret = os.getenv('CLIENT_SECRET')
 league_id = os.getenv('LEAGUE_ID')
 redirect_uri = 'https://redirectmeto.com/http://localhost:5000/redirect'
 url_base = 'localhost:5000'
-access_token =  'hcLYRNmYpgvEQm9zJ1aAkQOd2NVynRUqhFZlngZ5M5EajFVwWs6MKvOXySKfEHkRHXBY_2zxSvfkgs2g7egAaK4JlazI_zmeXrHXY0fp0WdNRwantlgOirohbHeGHBus64HuMRHzEvGhDSkf6iJc.rGEMVhQ9A61WZdc4q6Je1h5LvOA9w0TqYNqDSILbZo54p3Cvp_BUhauqhq7ENID3wybYmbGaLQbkk3A3W3184WqcbSoWzSIGTzvEjcJd_a17vdCydDvpPhEQvmsj4Bqx2MiCgZaPVxVOzd.Orhnt2I4XI7Xx64bdD8LjoNl7R3QwyCu6BkE7L5Je2V2Tq5prPFiQ.M6PyZXpkBvJf4rq6OW.LWXWstaQ6XE8qS0YdZwgEKyXSe37.rgNlIcxxrTsRk_eei8YqFRxe6ok_nM3CEZVgVQjho5XbiPqylw4QTdlR5FK2Ko4OuLbJg3G.UUDIox2hsi38vmr5EC96KwalQrYqG0Pw2sLjRA32I78_.kM2pI9fJBZAD1Gsy3x1CKzP92b_61I1KpVEcckOujzx_u5SRY7N.WVAUnwrA07iR73P5UR0_uVVA7hDg0YBPz9M2QiZSS_GBFvvzMG5X90n7FdwHGQHEEKmayFrbqk8BjGyEHVjwyXKv0i8o6D3PDg0fMd4qq3Is_5F0Vp.0j3tvvtt8cmrKS67lPirSpZSOFJU6MQFtg7AvvTguihkSWoKTsRTaQWVtu81NPMNcggTfRSlNRIRxU8BtpxXrXhiQFe0iuDs6KhhA3FfuWkvDLTKqGek0lDMGfXSmY0o5AjjJNK3qmHRrdcN.bY1R5imIHgZLP0KG4_GQTyGpasGFzSArKqyH9GnA_r03V2k6EFUg.dmFUU8Hff1qPuU2naKT8CmbVR4zkR3XHKoFeuvn34fTHpC6mBjWx'
+access_token =  'QQsYiKSYpgugx55RNt3D5swpyG2x70UIUpQ4iD8.cdeOSxYuFTAmR1Gho_w_D_zFhQjJ2QfNZNWgZZtfsSE_G2cTe3OBIifUXYceZidOXKxAQZ3cU_O4Wa6_gPdj0mTWyyq8Si.HPUATSiQbfAGsGvpWRbfqsqnyWorYkyKgUWlS6nSzmk7zrb0_ki4j_EqGeBmi2CJyiwjwTgIFpkS2ulxMd.T9yHFdTrgeXQPYu3b2nqUk0SOj_K.8nSWDmSBmJ.z.y5bkl0.CMAejvZEbb78CXUrXTc1mgqa4VpWoNqz8ZnNZIPPf5TwpMyIKi2rU59H9B3RRfUavMfooumXUeLzRTL8RV2ASib5v_ffmi9g8VMRNS1OLi1tkzrZ2w99qRN.pafBh53mqrPRSQVmtuTivLp0GaFgSQ8UgLHsy2ggej1R2KGFatCbWPhMWZ_CE67XMrQkKm662X8X88F4MWUqHADBlxnjbjjepXQTYYGDd8CMVJ95oFbFhRjIfcMjYAwq_i4q3xw2iujsMxGB0P4x3So7.1Eb_m8YRpg5dXt.xVWBApqVIsw7sHPlqWiwTi0WyDbaz_d4mndp4G99Z0M4rybITj51vBYqqD9_3SwhD7v2lVJGeab7DEyKFM7WNeUp2RL7kSGvMw244u7iDX331jSptiFKSHTLm7ag1PSjj7lNOEwpsnZIX9HPYX9AKxeOJmZwWbTP5sUPqVLSKealZvwwgN2LLBbnvtbxR8ual3hYi7P2irulL_Mxk4CMCabPQi.JUuh.sTe17WW.IcqaooX2WJLR6P3s3PMib0kHh.kJCO8ET6rIFWRo7ohMU0VJuyaLVNT7JxFam2eJ8z9YknL5DVXCb9Rdz2G4JXA3iVj_EUAh8kBJSqgjv.YD0xFqA97Sbt42fl_gt2dORa_D3z1FoymfL'
+
 CONST_CURRENT_SEASON = '2023-24'
 # may need to refactor into the settings query
 CONST_STAT_IDENTIFER = {
@@ -33,6 +35,12 @@ CONST_STAT_IDENTIFER = {
 
 all_players = players.get_active_players()
 
+
+
+app = Flask(__name__)
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
+
 def request_handler():
     
     u = f'https://api.login.yahoo.com/oauth2/request_auth?'
@@ -41,18 +49,19 @@ def request_handler():
         'redirect_uri': redirect_uri,
         'response_type' : 'code'
     }
-    print(u)
     r = requests.get(u,p)
-    webbrowser.open(r.url)
-
-app = Flask(__name__)
+    return r.url
+    
 @app.route("/")
+@cross_origin()
 def hello_world():
-    request_handler()
-    return "hi"
+    url = request_handler()
+    print(url)
+    return redirect(url, code = 302)
 
 @app.route("/redirect", methods = ['GET', 'POST'])
-def redirect():
+@cross_origin()
+def redirect_endpoint():
     code = request.args.get('code')
     u = f"https://api.login.yahoo.com/oauth2/get_token?"
     p = {
@@ -62,7 +71,10 @@ def redirect():
         'code': code,
         'grant_type': 'authorization_code'
     }
-    r = requests.post(u,p)
+    h = {
+        'Access-Control-Allow-Origin' : '*'
+    }
+    r = requests.post(u,params = p, headers = h)
     response = r.json()
     print(response)
     token = response['access_token']
@@ -81,22 +93,22 @@ def query(token, l_id):
         'Authorization': f'Bearer {token}'
     }
 
-    #settings = settings_query(h,l_id)
+    settings = settings_query(h,l_id)
     players = players_query(h,l_id)
-    #team = team_query(h,l_id) 
-    #matchup = matchup_query(h,l_id)
+    team = team_query(h,l_id) 
+    matchup = matchup_query(h,l_id)
 
-    # request = {
-    #     'settings' : settings,
-    #     'players' : players,
-    #     'team' : team,
-    #     'matchup' : matchup
-    # }
+    request = {
+        'settings' : settings,
+        'players' : players,
+        'team' : team,
+        'matchup' : matchup
+    }
 
-    with open('players.json', "w") as outfile:
-        json.dump(players,outfile,indent = 2)
+    # with open('players.json', "w") as outfile:
+    #     json.dump(players,outfile,indent = 2)
 
-    return 'asdf'
+    return request
 
 def strip_namespace(xml_string):
     root = ET.fromstring(xml_string)
@@ -353,6 +365,6 @@ def import_team_data():
 def test_function():
     pass
 
-test_function()
+#test_function()
 #import_team_data() 
 #import_player_data()
